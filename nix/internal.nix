@@ -19,7 +19,7 @@
   # https://deno.land/std@0.118.0/fmt/colors.ts
   #
   # https/deno.land/<sha256 "/std@0.118.0/fmt/colors.ts">
-  artifactPath = url: let up = urlPart url; in "${up 0}/${up 1}/${hashString "sha256" (up 2)}";
+  artifactPath = url: let up = builtins.trace url (urlPart url); in "${up 0}/${up 1}/${hashString "sha256" (up 2)}";
 in {
   mkDepsLink = lockfile: (
     linkFarm "deps" (flatten (
