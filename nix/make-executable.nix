@@ -26,7 +26,6 @@ in
       ln -s "${mkDepsLink lockfile}" $(deno info --json | jq -r .modulesCache)
 
       deno compile \
-        --unstable \
         --cached-only \
         --lock="${lockfile}" \
         --output="${output}" \
